@@ -1,0 +1,55 @@
+{
+	"name": "MW_EXT_URL",
+	"version": "1.0.0",
+	"author": [
+		"[https://kitsune.solar/ Kitsune Solar]",
+		"[https://metastore.pro/ METASTORE]",
+		"..."
+	],
+	"url": "https://metastore.pro/",
+	"descriptionmsg": "mw-ext-url-desc",
+	"license-name": "[https://www.gnu.org/licenses/gpl-3.0.txt GPL-3.0]",
+	"type": "parserhook",
+	"require": {
+		"MediaWiki": ">= 1.31.0",
+		"extensions": {
+			"MW_EXT_Kernel": "*"
+		}
+	},
+	"AutoloadClasses": {
+		"MediaWiki\\Extension\\MetaStore\\MW_EXT_URL": "MW_EXT_URL.class.php"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"MediaWiki\\Extension\\MetaStore\\MW_EXT_URL::onParserFirstCallInit"
+		],
+		"BeforePageDisplay": [
+			"MediaWiki\\Extension\\MetaStore\\MW_EXT_URL::onBeforePageDisplay"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"MW_EXT_URLMagic": "MW_EXT_URL.i18n.magic.php"
+	},
+	"MessagesDirs": {
+		"MW_EXT_URL": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.mw.url.styles": {
+			"styles": [
+				"styles/theme.css"
+			],
+			"position": "top",
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "MW_EXT_URL/modules"
+	},
+	"manifest_version": 2
+}
